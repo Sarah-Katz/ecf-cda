@@ -2,7 +2,7 @@ package co.simplon.sarah.api.ecf.business.dto;
 
 public class RoomDto {
     private int idRoom;
-    private String name;
+    private String number;
     private ServiceDto service;
 
     /**
@@ -20,17 +20,17 @@ public class RoomDto {
     }
 
     /**
-     * @return the room's name
+     * @return the room's number
      */
-    public String getName() {
-        return name;
+    public String getNumber() {
+        return number;
     }
 
     /**
-     * @param name the room's name to set
+     * @param number the room's number to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     /**
