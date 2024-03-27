@@ -1,41 +1,19 @@
-package co.simplon.sarah.api.ecf.persistance.entity;
+package co.simplon.sarah.api.ecf.business.dto;
 
 import java.util.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "patient")
-public class Patient {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_patient")
+public class PatientDto {
     private int idPatient;
-
-    @Column(name = "firstName", nullable = false)
     private String firstName;
-
-    @Column(name = "lastName", nullable = false)
     private String lastName;
-
-    @Column(name = "birthdate", nullable = false)
     private Date birthdate;
-
-    @Column(name = "social_security_number", nullable = false)
     private String socialSecurityNumber;
-
-    @Column(name = "created_at", nullable = false)
     private Date createdAt;
-
-    @Column(name = "modified_at")
     private Date modifiedAt;
 
     /**
+     * Returns the patient's id.
+     * 
      * @return the patient's id
      */
     public int getIdPatient() {
@@ -43,41 +21,53 @@ public class Patient {
     }
 
     /**
+     * Sets the patient's id.
+     * 
      * @param idPatient the patient's id to set
      */
-    public void setIdPatient(final int idPatient) {
+    public void setIdPatient(int idPatient) {
         this.idPatient = idPatient;
     }
 
     /**
-     * @return the patient's firstName
+     * Returns the patient's firstname.
+     * 
+     * @return the patient's firstname
      */
     public String getFirstName() {
         return firstName;
     }
 
     /**
-     * @param firstName the patient's firstName to set
+     * Sets the patient's firstname.
+     * 
+     * @param firstName the patient's firstname to set
      */
-    public void setFirstName(final String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     /**
-     * @return the patient's lastName
+     * Returns the patient's lastname.
+     * 
+     * @return the patient's lastname
      */
     public String getLastName() {
         return lastName;
     }
 
     /**
-     * @param lastName the patient's lastName to set
+     * Sets the patient's lastname.
+     * 
+     * @param lastName the patient's lastname to set
      */
-    public void setLastName(final String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /**
+     * Returns the patient's birthdate.
+     * 
      * @return the patient's birthdate
      */
     public Date getBirthdate() {
@@ -85,13 +75,17 @@ public class Patient {
     }
 
     /**
+     * Sets the patient's birthdate.
+     * 
      * @param birthdate the patient's birthdate to set
      */
-    public void setBirthdate(final Date birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 
     /**
+     * Returns the patient's social security number.
+     * 
      * @return the patient's social security number
      */
     public String getSocialSecurityNumber() {
@@ -99,13 +93,17 @@ public class Patient {
     }
 
     /**
+     * Sets the patient's social security number.
+     * 
      * @param socialSecurityNumber the patient's social security number to set
      */
-    public void setSocialSecurityNumber(final String socialSecurityNumber) {
+    public void setSocialSecurityNumber(String socialSecurityNumber) {
         this.socialSecurityNumber = socialSecurityNumber;
     }
 
     /**
+     * Returns the patient's creation date.
+     * 
      * @return the patient's creation date
      */
     public Date getCreatedAt() {
@@ -113,13 +111,17 @@ public class Patient {
     }
 
     /**
+     * Sets the patient's creation date.
+     * 
      * @param createdAt the patient's creation date to set
      */
-    public void setCreatedAt(final Date createdAt) {
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
     /**
+     * Returns the patient's last modification date.
+     * 
      * @return the patient's last modification date
      */
     public Date getModifiedAt() {
@@ -127,9 +129,11 @@ public class Patient {
     }
 
     /**
+     * Sets the patient's last modification date.
+     * 
      * @param modifiedAt the patient's last modification date to set
      */
-    public void setModifiedAt(final Date modifiedAt) {
+    public void setModifiedAt(Date modifiedAt) {
         this.modifiedAt = modifiedAt;
     }
 }
