@@ -24,7 +24,7 @@ public class Patient {
     private String lastname;
 
     @Column(name = "birthdate", nullable = false)
-    private String birthdate;
+    private Date birthdate;
 
     @Column(name = "social_security_number", nullable = false)
     private String socialSecurityNumber;
@@ -80,14 +80,14 @@ public class Patient {
     /**
      * @return the patient's birthdate
      */
-    public String getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
     /**
      * @param birthdate the patient's birthdate to set
      */
-    public void setBirthdate(final String birthdate) {
+    public void setBirthdate(final Date birthdate) {
         this.birthdate = birthdate;
     }
 
