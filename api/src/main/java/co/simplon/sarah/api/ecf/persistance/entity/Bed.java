@@ -1,10 +1,12 @@
 package co.simplon.sarah.api.ecf.persistance.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -18,11 +20,11 @@ public class Bed {
     private int idBed;
 
     @OneToOne
-    @Column(name = "id_patient")
+    @PrimaryKeyJoinColumn(name = "id_patient")
     private Patient patient;
 
     @ManyToOne
-    @Column(name = "id_room")
+    @JoinColumn(name = "id_room")
     private Room room;
 
     /**
