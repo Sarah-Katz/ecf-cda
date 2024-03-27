@@ -28,6 +28,7 @@ public class RoomConvert {
      */
     public Room toEntity(final RoomDto dto) {
         Room room = new Room();
+        room.setIdRoom(dto.getIdRoom());
         room.setNumber(dto.getNumber());
         room.setService(dto.getService() != null ? ServiceConvert.getInstance().toEntity(dto.getService()) : null);
         return room;
