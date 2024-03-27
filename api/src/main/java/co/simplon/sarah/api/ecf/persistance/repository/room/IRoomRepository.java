@@ -13,7 +13,7 @@ public interface IRoomRepository extends JpaRepository<Room, Integer> {
     List<Bed> getAvailableBeds(final int idService);
 
     @Query(RoomQueries.FIND_BY_PATIENT_ID)
-    Bed findByPatientId(final int idPatient);
+    Room findByPatientId(final int idPatient);
 
     @Query(RoomQueries.FIND_BY_SERVICE_ID)
     List<Room> findByService(final int idService);
