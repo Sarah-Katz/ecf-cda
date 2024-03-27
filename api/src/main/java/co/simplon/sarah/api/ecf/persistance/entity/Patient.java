@@ -17,11 +17,11 @@ public class Patient {
     @Column(name = "id_patient")
     private int idPatient;
 
-    @Column(name = "firstname", nullable = false)
-    private String firstname;
+    @Column(name = "firstName", nullable = false)
+    private String firstName;
 
-    @Column(name = "lastname", nullable = false)
-    private String lastname;
+    @Column(name = "lastName", nullable = false)
+    private String lastName;
 
     @Column(name = "birthdate", nullable = false)
     private Date birthdate;
@@ -50,31 +50,31 @@ public class Patient {
     }
 
     /**
-     * @return the patient's firstname
+     * @return the patient's firstName
      */
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
     /**
-     * @param firstname the patient's firstname to set
+     * @param firstName the patient's firstName to set
      */
-    public void setFirstname(final String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(final String firstName) {
+        this.firstName = firstName;
     }
 
     /**
-     * @return the patient's lastname
+     * @return the patient's lastName
      */
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
     /**
-     * @param lastname the patient's lastname to set
+     * @param lastName the patient's lastName to set
      */
-    public void setLastname(final String lastname) {
-        this.lastname = lastname;
+    public void setLastName(final String lastName) {
+        this.lastName = lastName;
     }
 
     /**

@@ -34,8 +34,8 @@ public class PatientConvert {
     public Patient toEntity(final PatientDto dto) {
         final Patient entity = new Patient();
         entity.setIdPatient(dto.getIdPatient());
-        entity.setFirstname(dto.getFirstName());
-        entity.setLastname(dto.getLastName());
+        entity.setFirstName(dto.getFirstName());
+        entity.setLastName(dto.getLastName());
         entity.setBirthdate(dto.getBirthdate());
         entity.setSocialSecurityNumber(dto.getSocialSecurityNumber());
         entity.setCreatedAt(dto.getCreatedAt());
@@ -52,8 +52,8 @@ public class PatientConvert {
     public PatientDto toDto(final Patient entity) {
         final PatientDto dto = new PatientDto();
         dto.setIdPatient(entity.getIdPatient());
-        dto.setFirstName(entity.getFirstname());
-        dto.setLastName(entity.getLastname());
+        dto.setFirstName(entity.getFirstName());
+        dto.setLastName(entity.getLastName());
         dto.setBirthdate(entity.getBirthdate());
         dto.setSocialSecurityNumber(entity.getSocialSecurityNumber());
         dto.setCreatedAt(entity.getCreatedAt());
