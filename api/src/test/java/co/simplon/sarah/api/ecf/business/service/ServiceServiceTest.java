@@ -19,7 +19,7 @@ import co.simplon.sarah.api.ecf.persistance.entity.Service;
 import co.simplon.sarah.api.ecf.persistance.repository.service.IServiceRepository;
 
 @ExtendWith(SpringExtension.class)
-public class ServiceServiceTest {
+class ServiceServiceTest {
     @InjectMocks
     private ServiceServiceImpl serviceService;
 
