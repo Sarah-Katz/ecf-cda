@@ -2,10 +2,13 @@ package co.simplon.sarah.api.ecf.business.service.bed;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import co.simplon.sarah.api.ecf.business.convert.BedConvert;
 import co.simplon.sarah.api.ecf.business.dto.BedDto;
 import co.simplon.sarah.api.ecf.persistance.repository.bed.IBedRepository;
 
+@Service
 public class BedServiceImpl implements IBedService {
     private IBedRepository bedRepository;
 
@@ -15,14 +18,12 @@ public class BedServiceImpl implements IBedService {
 
     @Override
     public List<BedDto> getAllBeds() {
-        // TODO: Implement this method
-        return null;
+        return BedConvert.getInstance().toDtoList(bedRepository.findAll());
     }
 
     @Override
     public BedDto getBedByPatient(final int idPatient) {
-        // TODO: Implement this method
-        return null;
+        return BedConvert.getInstance().toDto(bedRepository.findByPatientId(idPatient));
     }
 
     @Override
