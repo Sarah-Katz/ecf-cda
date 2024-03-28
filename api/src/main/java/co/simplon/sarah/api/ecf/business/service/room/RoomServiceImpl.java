@@ -2,6 +2,8 @@ package co.simplon.sarah.api.ecf.business.service.room;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import co.simplon.sarah.api.ecf.business.convert.BedConvert;
 import co.simplon.sarah.api.ecf.business.convert.RoomConvert;
 import co.simplon.sarah.api.ecf.business.dto.BedDto;
@@ -9,6 +11,7 @@ import co.simplon.sarah.api.ecf.business.dto.RoomDto;
 import co.simplon.sarah.api.ecf.business.service.bed.IBedService;
 import co.simplon.sarah.api.ecf.persistance.repository.room.IRoomRepository;
 
+@Service
 public class RoomServiceImpl implements IRoomService {
     private IRoomRepository roomRepository;
     private IBedService bedService;
