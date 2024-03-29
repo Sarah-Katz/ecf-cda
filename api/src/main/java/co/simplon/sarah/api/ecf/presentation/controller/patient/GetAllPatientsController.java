@@ -1,8 +1,9 @@
 package co.simplon.sarah.api.ecf.presentation.controller.patient;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.sarah.api.ecf.business.dto.PatientDto;
@@ -10,18 +11,18 @@ import co.simplon.sarah.api.ecf.business.service.patient.IPatientService;
 
 @RestController
 @CrossOrigin
-public class UpdatePatientController {
+public class GetAllPatientsController {
     private IPatientService patientService;
 
-    public UpdatePatientController(IPatientService patientService) {
+    public GetAllPatientsController(final IPatientService patientService) {
         this.patientService = patientService;
     }
 
     /**
-     * @param patientDto the patientDto to update in the database
+     * @return Returns a list of all the patients
      */
-    @PutMapping("/patients")
-    public void updatePatient(@RequestBody final PatientDto patientDto) {
-        patientService.savePatient(patientDto);
+    @GetMapping("/patients")
+    public List<PatientDto> getAllPatients() {
+        return patientService.getAllPatients();
     }
 }
