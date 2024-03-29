@@ -1,8 +1,9 @@
 package co.simplon.sarah.api.ecf.presentation.controller.patient;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,18 +15,17 @@ import co.simplon.sarah.api.ecf.business.dto.PatientDto;
 import co.simplon.sarah.api.ecf.business.service.patient.IPatientService;
 
 @ExtendWith(MockitoExtension.class)
-class AssignServiceControllerTest {
+class RemoveFromServiceControllerTest {
     @InjectMocks
-    private AssignServiceController assignServiceController;
+    private RemoveFromServiceController removeFromServiceController;
 
     @Mock
-    private IPatientService iPatientService;
+    private IPatientService patientService;
 
     @Test
-    void testAssignService() {
-        PatientDto patientDto = new PatientDto();
-        when(iPatientService.assignService(patientDto, 1)).thenReturn(true);
-        assignServiceController.assignService(patientDto, 1);
-        verify(iPatientService, times(1)).assignService(patientDto, 1);
+    void removeFromService() {
+        doNothing().when(patientService).removeFromService(any(PatientDto.class));
+        removeFromServiceController.removeFromService(new PatientDto());
+        verify(patientService, times(1)).removeFromService(any(PatientDto.class));
     }
 }
