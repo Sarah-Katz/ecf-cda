@@ -19,17 +19,17 @@ public class Patient {
     @Column(name = "id_patient")
     private int idPatient;
 
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "firstName", nullable = false, length = 50)
     private String firstName;
 
-    @Column(name = "lastName", nullable = false)
+    @Column(name = "lastName", nullable = false, length = 50)
     private String lastName;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "birthdate", nullable = false)
     private Date birthdate;
 
-    @Column(name = "social_security_number", nullable = false)
+    @Column(name = "social_security_number", nullable = false, length = 15)
     private String socialSecurityNumber;
     
     @Temporal(TemporalType.DATE)
