@@ -11,14 +11,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import co.simplon.sarah.api.ecf.business.dto.ServiceDto;
 import co.simplon.sarah.api.ecf.business.service.service.ServiceServiceImpl;
 import co.simplon.sarah.api.ecf.persistance.entity.Service;
 import co.simplon.sarah.api.ecf.persistance.repository.service.IServiceRepository;
 
-@ExtendWith(SpringExtension.class)
+@ExtendWith(MockitoExtension.class)
 class ServiceServiceTest {
     @InjectMocks
     private ServiceServiceImpl serviceService;
