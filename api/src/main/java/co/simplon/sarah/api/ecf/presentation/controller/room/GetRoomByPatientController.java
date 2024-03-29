@@ -2,7 +2,7 @@ package co.simplon.sarah.api.ecf.presentation.controller.room;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.sarah.api.ecf.business.dto.RoomDto;
@@ -21,8 +21,8 @@ public class GetRoomByPatientController {
      * @param patientId The id of the patient
      * @return The room of the patient
      */
-    @GetMapping("/rooms/byPatient/{patientId}")
-    public RoomDto getRoomByPatient(@PathVariable final int patientId) {
+    @GetMapping("/rooms/byPatient/$patientId")
+    public RoomDto getRoomByPatient(@RequestParam final int patientId) {
         return roomService.getRoomByPatient(patientId);
     }
 
