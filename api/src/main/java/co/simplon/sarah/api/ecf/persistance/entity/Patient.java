@@ -8,6 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "patient")
@@ -23,15 +25,18 @@ public class Patient {
     @Column(name = "lastName", nullable = false)
     private String lastName;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "birthdate", nullable = false)
     private Date birthdate;
 
     @Column(name = "social_security_number", nullable = false)
     private String socialSecurityNumber;
-
+    
+    @Temporal(TemporalType.DATE)
     @Column(name = "created_at", nullable = false)
     private Date createdAt;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "modified_at")
     private Date modifiedAt;
 
