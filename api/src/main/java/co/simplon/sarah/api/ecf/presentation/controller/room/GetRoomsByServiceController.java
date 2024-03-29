@@ -19,6 +19,10 @@ public class GetRoomsByServiceController {
         this.roomService = roomService;
     }
 
+    /**
+     * @param serviceId The id of the service
+     * @return A list of rooms for the given service id
+     */
     @GetMapping("/rooms/byService/$serviceId")
     public List<RoomDto> getRoomsByService(@RequestParam final int serviceId) {
         return roomService.getRoomsByService(serviceId);
