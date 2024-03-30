@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS ecf;
+
+CREATE DATABASE ecf WITH OWNER = ecf ENCODING = 'UTF8';
+
 CREATE SEQUENCE bed_seq START WITH 1 increment by 50;
 
 CREATE SEQUENCE patient_seq START WITH 1 increment by 50;
