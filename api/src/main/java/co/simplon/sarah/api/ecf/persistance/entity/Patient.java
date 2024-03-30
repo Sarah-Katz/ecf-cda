@@ -29,9 +29,9 @@ public class Patient {
     @Column(name = "birthdate", nullable = false)
     private Date birthdate;
 
-    @Column(name = "social_security_number", nullable = false, length = 15)
+    @Column(name = "social_security_number", nullable = false, length = 15, unique = true)
     private String socialSecurityNumber;
-    
+
     @Temporal(TemporalType.DATE)
     @Column(name = "created_at", nullable = false)
     private Date createdAt;
