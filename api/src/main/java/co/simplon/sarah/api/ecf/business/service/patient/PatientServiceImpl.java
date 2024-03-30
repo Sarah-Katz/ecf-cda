@@ -1,5 +1,6 @@
 package co.simplon.sarah.api.ecf.business.service.patient;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -27,11 +28,13 @@ public class PatientServiceImpl implements IPatientService {
 
     @Override
     public void savePatient(final PatientDto patientDto) {
+        patientDto.setCreatedAt(new Date());
         patientRepository.save(PatientConvert.getInstance().toEntity(patientDto));
     }
 
     @Override
     public void updatePatient(final PatientDto patientDto) {
+        patientDto.setModifiedAt(new Date());
         patientRepository.save(PatientConvert.getInstance().toEntity(patientDto));
     }
 
