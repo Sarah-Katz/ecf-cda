@@ -21,7 +21,7 @@ public class GetPatientByIdController {
      * @param id the id of the patient to retrieve
      * @return the {@link PatientDto} with the given id
      */
-    @GetMapping("/users/$id")
+    @GetMapping("/patients/$id")
     public PatientDto getPatientById(@RequestParam final int id) {
         return patientService.getPatientById(id);
     }
