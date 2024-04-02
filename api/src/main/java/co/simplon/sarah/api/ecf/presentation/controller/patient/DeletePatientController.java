@@ -19,7 +19,7 @@ public class DeletePatientController {
     /**
      * @param id the id of the patient to delete
      */
-    @DeleteMapping("/users/$id")
+    @DeleteMapping("/patients/$id")
     public void deletePatientById(@RequestParam final int id) {
         patientService.deletePatient(id);
     }
