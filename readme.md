@@ -57,7 +57,7 @@ Les tâches sont donc :
 ### **Room**
 
 -   **_GET_** | **"/rooms/byPatient/$id"** - Récupération de la chambre assignée à un patient par l'id du patient.
--   **_GET_** | **"/beds/byService/$id"** - Récupération de la liste des chambres d'un service par l'id du service.
+-   **_GET_** | **"/rooms/byService/$id"** - Récupération de la liste des chambres d'un service par l'id du service.
 -   **_GET_** | **"/rooms/beds/$id"** - Récupération de la liste des lits libres des chambres d'un service par l'id du service.
 -   **_POST_** | **"/rooms/addBed/"** - Assigne un lit libre à une chambre.
 -   **_POST_** | **"/rooms/removeBed/"** - libère un lit libre d'une chambre et l'ajoute aux lits libres.
