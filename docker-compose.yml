@@ -2,38 +2,41 @@ version: "3.5"
 
 services:
     postgres:
-        container_name: postgres_cda_ecf
+        container_name: postgres_api_ecf
         image: postgres:16.2
         environment:
-            POSTGRES_USER: ${POSTGRES_USER:-ecf}
-            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ecf}
+            POSTGRES_USER: ecf
+            POSTGRES_PASSWORD: ecf
             PGDATA: /data/postgres
         volumes:
             - postgres:/data/postgres
         ports:
-            - "5436:5432"
+            - "5432:5432"
         networks:
-            - postgres
+            - api_ecf
         restart: unless-stopped
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U ecf"]
+            interval: 10s
+            timeout: 5s
+            retries: 6
 
-    pgadmin:
-        container_name: pgadmin_ecf
-        image: dpage/pgadmin4
-        environment:
-            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@ecf.io}
-            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-            PGADMIN_CONFIG_SERVER_MODE: "False"
-        volumes:
-            - pgadmin:/var/lib/pgadmin
-
+    api:
+        container_name: api_ecf
+        image: sarahkatz/api-ecf:latest
         ports:
-            - "${PGADMIN_PORT:-5050}:80"
+            - "8080:8080"
         networks:
-            - postgres
+            - api_ecf
         restart: unless-stopped
+        environment:
+            - spring.datasource.url=jdbc:postgresql://postgres_api_ecf:5432/ecf
+        depends_on:
+            postgres:
+                condition: service_healthy
 
 networks:
-    postgres:
+    api_ecf:
         driver: bridge
 
 volumes:

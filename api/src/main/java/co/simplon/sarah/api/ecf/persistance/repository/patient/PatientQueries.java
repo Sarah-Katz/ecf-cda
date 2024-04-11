@@ -5,5 +5,5 @@ public class PatientQueries {
         throw new IllegalStateException("Utility class not meant to be instantiated");
     }
 
-    public static final String FIND_BY_SERVICE_NAME = "SELECT p FROM Patient p JOIN Bed b JOIN Room r JOIN Service s WHERE s.name = :name";
+    public static final String FIND_BY_SERVICE_NAME = "SELECT p FROM Patient p JOIN Bed b ON b.patient = p JOIN Room r ON b.room = r JOIN Service s ON r.service = s WHERE s.name = :name";
 }
