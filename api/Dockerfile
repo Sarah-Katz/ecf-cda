@@ -1,10 +1,7 @@
-FROM maven:3.8.5-openjdk-17 AS build
+FROM maven:3.9.6-eclipse-temurin-17-focal AS build
 WORKDIR /api
 COPY . .
-
-FROM openjdk:17.0.2-slim
-RUN mkdir /api
-COPY --from=build /api/target/api-1.0.0.jar /api/api.jar
-WORKDIR /api
+RUN mvn clean install
+COPY target/*.jar /jar/api.jar
 EXPOSE 8080
-CMD ["java", "-jar", "/api/api.jar"]
+CMD ["java", "-jar", "/jar/api.jar"]
