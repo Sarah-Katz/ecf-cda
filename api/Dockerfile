@@ -1,7 +1,6 @@
 FROM maven:3.8.5-openjdk-17 AS build
 WORKDIR /api
 COPY . .
-RUN mvn clean install -Dmaven.test.skip=true
 
 FROM openjdk:17.0.2-slim
 RUN mkdir /api
