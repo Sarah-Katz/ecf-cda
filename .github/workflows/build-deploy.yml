@@ -16,14 +16,8 @@ jobs:
                   username: ${{ secrets.DOCKERHUB_USERNAME }}
                   password: ${{ secrets.DOCKERHUB_PWD }}
 
-            - name: Get version from pom.xml
-              id: get_version
-              run: |
-                  VERSION=$(cat pom.xml | grep -Eo '(<version>)[^<]*(</version>)' | sed -n '2p' | sed 's/<[^>]*>//g;s/<[^>]*>//g')
-                  echo "::set-output name=version::${VERSION}"
-
             - name: Build and push
               uses: docker/build-push-action@v5
               with:
                   push: true
-                  tags: sarahkatz/ecf-api:${{ steps.get_version.outputs.version }}
+                  tags: sarahkatz/ecf-api:latest
