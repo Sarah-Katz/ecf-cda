@@ -5,7 +5,7 @@ on:
             - cicd
 
 jobs:
-    security:
+    Build-Deploy:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
@@ -18,6 +18,9 @@ jobs:
 
             - name: Build
               run: docker build -t "ecf-api" ./api
+
+            - name: Tag
+              run: docker tag ecf-api:latest sarahkat/ecf-api:latest
 
             - name: Push
               run: docker push "sarahkatz/ecf-api:latest"
