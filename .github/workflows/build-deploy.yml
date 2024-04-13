@@ -19,8 +19,5 @@ jobs:
             - name: Build
               run: docker build -t "ecf-api" ./api
 
-            - name: Tag
-              run: docker tag ecf-api:latest sarahkat/ecf-api:latest
-
             - name: Push
-              run: docker push "sarahkatz/ecf-api:latest"
+              run: docker tag ecf-api:latest sarahkat/ecf-api:latest && docker push "sarahkatz/ecf-api:latest"
