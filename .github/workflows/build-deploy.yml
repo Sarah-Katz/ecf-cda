@@ -24,3 +24,11 @@ jobs:
 
             - name: Push
               run: docker push sarahkatz/api-ecf:latest
+
+            - name: Deploy
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                host: ${{ secrets.VPS_HOST }}
+                username: ${{ secrets.VPS_USER }}
+                password: ${{ secrets.VPS_PWD }}
+                script: ecf-deploy.sh
