@@ -1,6 +1,6 @@
 name: build and push the api image to docker hub
 on:
-    pull_request:
+    push:
         branches:
             - dev
 
