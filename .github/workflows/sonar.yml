@@ -30,4 +30,5 @@ jobs:
               env:
                   SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
                   SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
+              working-directory: api/
               run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sarah-api-ecf -Dsonar.projectName='sarah api ecf'
