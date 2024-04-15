@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,11 @@ class PatientIT {
         patient2.setModifiedAt(new Date());
 
         patientRepository.saveAll(List.of(patient, patient2));
+    }
+
+    @AfterEach
+    void tearDown() {
+        patientRepository.deleteAll();
     }
 
     private String getUrl(final String uri) {

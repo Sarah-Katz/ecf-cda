@@ -23,7 +23,7 @@ public class AssignServiceController {
      * @param serviceId The id of the service to assign
      * @return True if the assignment was successful, false otherwise
      */
-    @PostMapping("/patients/assign/$id")
+    @PostMapping("/patients/assign/{serviceId}")
     public boolean assignService(@RequestBody final PatientDto patientDto, @PathVariable final int serviceId) {
         return this.patientService.assignService(patientDto, serviceId);
     }

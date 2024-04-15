@@ -2,7 +2,7 @@ package co.simplon.sarah.api.ecf.presentation.controller.bed;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.sarah.api.ecf.business.dto.BedDto;
@@ -21,8 +21,8 @@ public class GetBedByPatientController {
      * @param idPatient Patient's id
      * @return
      */
-    @GetMapping("/beds/byPatient/$idPatient")
-    public BedDto getBedByPatient(@RequestParam final int idPatient) {
+    @GetMapping("/beds/byPatient/{idPatient}")
+    public BedDto getBedByPatient(@PathVariable final int idPatient) {
         return bedService.getBedByPatient(idPatient);
     }
 }
