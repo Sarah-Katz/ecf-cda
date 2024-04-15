@@ -2,7 +2,7 @@ package co.simplon.sarah.api.ecf.presentation.controller.patient;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.sarah.api.ecf.business.dto.PatientDto;
@@ -21,8 +21,8 @@ public class GetPatientByIdController {
      * @param id the id of the patient to retrieve
      * @return the {@link PatientDto} with the given id
      */
-    @GetMapping("/patients/$id")
-    public PatientDto getPatientById(@RequestParam final int id) {
+    @GetMapping("/patients/{id}")
+    public PatientDto getPatientById(@PathVariable final int id) {
         return patientService.getPatientById(id);
     }
 

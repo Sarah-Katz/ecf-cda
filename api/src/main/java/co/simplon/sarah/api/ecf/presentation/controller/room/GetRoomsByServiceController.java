@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.sarah.api.ecf.business.dto.RoomDto;
@@ -23,8 +23,8 @@ public class GetRoomsByServiceController {
      * @param serviceId The id of the service
      * @return A list of rooms for the given service id
      */
-    @GetMapping("/rooms/byService/$serviceId")
-    public List<RoomDto> getRoomsByService(@RequestParam final int serviceId) {
+    @GetMapping("/rooms/byService/{serviceId}")
+    public List<RoomDto> getRoomsByService(@PathVariable final int serviceId) {
         return roomService.getRoomsByService(serviceId);
     }
 }

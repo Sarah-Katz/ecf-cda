@@ -5,22 +5,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.TestPropertySource;
 
 import co.simplon.sarah.api.ecf.business.dto.PatientDto;
 import co.simplon.sarah.api.ecf.persistance.entity.Patient;
 import co.simplon.sarah.api.ecf.persistance.repository.patient.IPatientRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@PropertySource("classpath:application-tests.properties")
+@TestPropertySource("classpath:application-tests.properties")
 class PatientIT {
     @LocalServerPort
     private int port;
@@ -51,6 +52,11 @@ class PatientIT {
         patient2.setModifiedAt(new Date());
 
         patientRepository.saveAll(List.of(patient, patient2));
+    }
+
+    @AfterEach
+    void tearDown() {
+        patientRepository.deleteAll();
     }
 
     private String getUrl(final String uri) {
