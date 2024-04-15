@@ -11,16 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.TestPropertySource;
 
 import co.simplon.sarah.api.ecf.business.dto.PatientDto;
 import co.simplon.sarah.api.ecf.persistance.entity.Patient;
 import co.simplon.sarah.api.ecf.persistance.repository.patient.IPatientRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@PropertySource("classpath:application-tests.properties")
+@TestPropertySource("classpath:application-tests.properties")
 class PatientIT {
     @LocalServerPort
     private int port;
