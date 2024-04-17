@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.sarah.api.ecf.business.dto.PatientDto;
 import co.simplon.sarah.api.ecf.business.service.patient.IPatientService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @CrossOrigin
+@Tag(name = "Patients")
 public class GetPatientByIdController {
     private IPatientService patientService;
 

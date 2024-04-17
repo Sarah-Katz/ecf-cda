@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.sarah.api.ecf.business.dto.BedDto;
 import co.simplon.sarah.api.ecf.business.service.bed.IBedService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @CrossOrigin
+@Tag(name = "Beds")
 public class GetAllBedsController {
     private IBedService bedService;
 
