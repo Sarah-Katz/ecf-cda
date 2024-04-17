@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.sarah.api.ecf.business.dto.PatientDto;
 import co.simplon.sarah.api.ecf.business.service.patient.IPatientService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @CrossOrigin
+@Tag(name = "Patients")
 public class AssignServiceController {
     private IPatientService patientService;
 
@@ -20,7 +22,7 @@ public class AssignServiceController {
 
     /**
      * @param patientDto The patient to assign a bed to
-     * @param serviceId The id of the service to assign
+     * @param serviceId  The id of the service to assign
      * @return True if the assignment was successful, false otherwise
      */
     @PostMapping("/patients/assign/{serviceId}")

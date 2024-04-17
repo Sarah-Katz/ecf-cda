@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.sarah.api.ecf.business.service.patient.IPatientService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @CrossOrigin
+@Tag(name = "Patients")
 public class DeletePatientController {
     private IPatientService patientService;
 
