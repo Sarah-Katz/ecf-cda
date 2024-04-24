@@ -28,9 +28,14 @@ public class BedConvert {
      */
     public Bed toEntity(final BedDto dto) {
         final Bed entity = new Bed();
-        entity.setIdBed(dto.getIdBed());
-        entity.setPatient(dto.getPatient() != null ? PatientConvert.getInstance().toEntity(dto.getPatient()) : null);
-        entity.setRoom(dto.getRoom() != null ? RoomConvert.getInstance().toEntity(dto.getRoom()) : null);
+        try {
+            entity.setIdBed(dto.getIdBed());
+            entity.setPatient(
+                    dto.getPatient() != null ? PatientConvert.getInstance().toEntity(dto.getPatient()) : null);
+            entity.setRoom(dto.getRoom() != null ? RoomConvert.getInstance().toEntity(dto.getRoom()) : null);
+        } catch (final NullPointerException e) {
+            return null;
+        }
         return entity;
     }
 
@@ -40,9 +45,14 @@ public class BedConvert {
      */
     public BedDto toDto(final Bed entity) {
         final BedDto dto = new BedDto();
-        dto.setIdBed(entity.getIdBed());
-        dto.setPatient(entity.getPatient() != null ? PatientConvert.getInstance().toDto(entity.getPatient()) : null);
-        dto.setRoom(entity.getRoom() != null ? RoomConvert.getInstance().toDto(entity.getRoom()) : null);
+        try {
+            dto.setIdBed(entity.getIdBed());
+            dto.setPatient(
+                    entity.getPatient() != null ? PatientConvert.getInstance().toDto(entity.getPatient()) : null);
+            dto.setRoom(entity.getRoom() != null ? RoomConvert.getInstance().toDto(entity.getRoom()) : null);
+        } catch (final NullPointerException e) {
+            return null;
+        }
         return dto;
     }
 

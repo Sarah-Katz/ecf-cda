@@ -28,8 +28,12 @@ public class ServiceConvert {
      */
     public Service toEntity(final ServiceDto dto) {
         final Service entity = new Service();
-        entity.setIdService(dto.getIdService());
-        entity.setName(dto.getName());
+        try {
+            entity.setIdService(dto.getIdService());
+            entity.setName(dto.getName());
+        } catch (final NullPointerException e) {
+            return null;
+        }
         return entity;
     }
 
@@ -39,8 +43,12 @@ public class ServiceConvert {
      */
     public ServiceDto toDto(final Service entity) {
         final ServiceDto dto = new ServiceDto();
-        dto.setIdService(entity.getIdService());
-        dto.setName(entity.getName());
+        try {
+            dto.setIdService(entity.getIdService());
+            dto.setName(entity.getName());
+        } catch (final NullPointerException e) {
+            return null;
+        }
         return dto;
     }
 

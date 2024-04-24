@@ -27,13 +27,17 @@ public class PatientConvert {
      */
     public Patient toEntity(final PatientDto dto) {
         final Patient entity = new Patient();
-        entity.setIdPatient(dto.getIdPatient());
-        entity.setFirstName(dto.getFirstName());
-        entity.setLastName(dto.getLastName());
-        entity.setBirthdate(dto.getBirthdate());
-        entity.setSocialSecurityNumber(dto.getSocialSecurityNumber());
-        entity.setCreatedAt(dto.getCreatedAt());
-        entity.setModifiedAt(dto.getModifiedAt());
+        try {
+            entity.setIdPatient(dto.getIdPatient());
+            entity.setFirstName(dto.getFirstName());
+            entity.setLastName(dto.getLastName());
+            entity.setBirthdate(dto.getBirthdate());
+            entity.setSocialSecurityNumber(dto.getSocialSecurityNumber());
+            entity.setCreatedAt(dto.getCreatedAt());
+            entity.setModifiedAt(dto.getModifiedAt());
+        } catch (final NullPointerException e) {
+            return null;
+        }
         return entity;
     }
 
@@ -43,13 +47,17 @@ public class PatientConvert {
      */
     public PatientDto toDto(final Patient entity) {
         final PatientDto dto = new PatientDto();
-        dto.setIdPatient(entity.getIdPatient());
-        dto.setFirstName(entity.getFirstName());
-        dto.setLastName(entity.getLastName());
-        dto.setBirthdate(entity.getBirthdate());
-        dto.setSocialSecurityNumber(entity.getSocialSecurityNumber());
-        dto.setCreatedAt(entity.getCreatedAt());
-        dto.setModifiedAt(entity.getModifiedAt());
+        try {
+            dto.setIdPatient(entity.getIdPatient());
+            dto.setFirstName(entity.getFirstName());
+            dto.setLastName(entity.getLastName());
+            dto.setBirthdate(entity.getBirthdate());
+            dto.setSocialSecurityNumber(entity.getSocialSecurityNumber());
+            dto.setCreatedAt(entity.getCreatedAt());
+            dto.setModifiedAt(entity.getModifiedAt());
+        } catch (final NullPointerException e) {
+            return null;
+        }
         return dto;
     }
 

@@ -28,9 +28,13 @@ public class RoomConvert {
      */
     public Room toEntity(final RoomDto dto) {
         Room room = new Room();
-        room.setIdRoom(dto.getIdRoom());
-        room.setNumber(dto.getNumber());
-        room.setService(dto.getService() != null ? ServiceConvert.getInstance().toEntity(dto.getService()) : null);
+        try {
+            room.setIdRoom(dto.getIdRoom());
+            room.setNumber(dto.getNumber());
+            room.setService(dto.getService() != null ? ServiceConvert.getInstance().toEntity(dto.getService()) : null);
+        } catch (final NullPointerException e) {
+            return null;
+        }
         return room;
     }
 
@@ -40,9 +44,14 @@ public class RoomConvert {
      */
     public RoomDto toDto(final Room entity) {
         RoomDto dto = new RoomDto();
-        dto.setIdRoom(entity.getIdRoom());
-        dto.setNumber(entity.getNumber());
-        dto.setService(entity.getService() != null ? ServiceConvert.getInstance().toDto(entity.getService()) : null);
+        try {
+            dto.setIdRoom(entity.getIdRoom());
+            dto.setNumber(entity.getNumber());
+            dto.setService(
+                    entity.getService() != null ? ServiceConvert.getInstance().toDto(entity.getService()) : null);
+        } catch (final NullPointerException e) {
+            return null;
+        }
         return dto;
     }
 
