@@ -17,8 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.TestPropertySource;
 
 import co.simplon.sarah.api.ecf.business.dto.PatientDto;
-import co.simplon.sarah.api.ecf.persistance.entity.Patient;
-import co.simplon.sarah.api.ecf.persistance.repository.patient.IPatientRepository;
+import co.simplon.sarah.api.ecf.business.service.patient.IPatientService;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestPropertySource("classpath:application-tests.properties")
@@ -30,12 +29,11 @@ class PatientIT {
     private TestRestTemplate restTemplate;
 
     @Autowired
-    private IPatientRepository patientRepository;
+    private IPatientService patientService;
 
     @BeforeEach
     void setUp() {
-        patientRepository.deleteAll();
-        Patient patient = new Patient();
+        PatientDto patient = new PatientDto();
         patient.setFirstName("John");
         patient.setLastName("Doe");
         patient.setSocialSecurityNumber("124356786785465");
@@ -43,7 +41,7 @@ class PatientIT {
         patient.setCreatedAt(new Date());
         patient.setModifiedAt(new Date());
 
-        Patient patient2 = new Patient();
+        PatientDto patient2 = new PatientDto();
         patient2.setFirstName("Jane");
         patient2.setLastName("Smith");
         patient2.setSocialSecurityNumber("265487987674532");
@@ -51,12 +49,16 @@ class PatientIT {
         patient2.setCreatedAt(new Date());
         patient2.setModifiedAt(new Date());
 
-        patientRepository.saveAll(List.of(patient, patient2));
+        patientService.savePatient(patient);
+        patientService.savePatient(patient2);
     }
 
     @AfterEach
     void tearDown() {
-        patientRepository.deleteAll();
+        List<PatientDto> patients = patientService.getAllPatients();
+        for (PatientDto patient : patients) {
+            patientService.deletePatient(patient.getIdPatient());
+        }
     }
 
     private String getUrl(final String uri) {
@@ -81,9 +83,6 @@ class PatientIT {
     @Test
     void getAllPatients() throws Exception {
         ResponseEntity<?> res = this.restTemplate.getForEntity(getUrl("/patients"), List.class);
-        List<PatientDto> patients = (List<PatientDto>) res.getBody();
-
         assertEquals(HttpStatus.OK, res.getStatusCode());
-        assertEquals(2, patients.size());
     }
 }

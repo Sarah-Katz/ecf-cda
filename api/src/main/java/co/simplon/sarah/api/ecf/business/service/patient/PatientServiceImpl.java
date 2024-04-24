@@ -57,11 +57,17 @@ public class PatientServiceImpl implements IPatientService {
 
     @Override
     public void deletePatient(int idPatient) {
+        BedDto bed = bedService.getBedByPatient(idPatient);
+        if (bed != null) {
+            bed.setPatient(null);
+            bedService.saveBed(bed);
+        }
         patientRepository.deleteById(idPatient);
     }
 
     @Override
     public boolean assignService(PatientDto patientDto, int idService) {
+        removeFromService(patientDto);
         List<BedDto> beds = roomService.getAvailableBeds(idService);
         BedDto bedToAssign;
         if (!beds.isEmpty()) {
@@ -77,7 +83,9 @@ public class PatientServiceImpl implements IPatientService {
     @Override
     public void removeFromService(PatientDto patientDto) {
         BedDto bed = bedService.getBedByPatient(patientDto.getIdPatient());
-        bed.setPatient(null);
-        bedService.saveBed(bed);
+        if (bed != null) {
+            bed.setPatient(null);
+            bedService.saveBed(bed);
+        }
     }
 }
