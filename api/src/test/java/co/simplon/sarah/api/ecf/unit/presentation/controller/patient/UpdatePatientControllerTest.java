@@ -25,8 +25,8 @@ class UpdatePatientControllerTest {
 
     @Test
     void updatePatient() {
-        doNothing().when(patientService).savePatient(any(PatientDto.class));
+        doNothing().when(patientService).updatePatient(any(PatientDto.class));
         updatePatientController.updatePatient(new PatientDto());
-        verify(patientService, times(1)).savePatient(any(PatientDto.class));
+        verify(patientService, times(1)).updatePatient(any(PatientDto.class));
     }
 }

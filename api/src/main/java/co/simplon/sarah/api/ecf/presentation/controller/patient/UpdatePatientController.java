@@ -24,6 +24,6 @@ public class UpdatePatientController {
      */
     @PutMapping("/patients")
     public void updatePatient(@RequestBody final PatientDto patientDto) {
-        patientService.savePatient(patientDto);
+        patientService.updatePatient(patientDto);
     }
 }
