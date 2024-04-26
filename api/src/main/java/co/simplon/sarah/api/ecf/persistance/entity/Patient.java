@@ -15,7 +15,7 @@ import jakarta.persistence.TemporalType;
 @Table(name = "patient")
 public class Patient {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_patient")
     private int idPatient;
 
